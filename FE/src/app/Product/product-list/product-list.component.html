@@ -1,0 +1,106 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="">
+</head>
+
+<body>
+
+  <div class="content">
+    <h3 class="h3User">Hello: </h3>
+    <div class="button-container">
+      <button class="button card-small"  routerLink="/list" routerLinkActive="active"  tabindex="0">
+        <span>List Products</span>
+      </button>
+      <!-- <button class="button button-small" (click)="openDialogAdd()" routerLink="/add" routerLinkActive="active" tabindex="0">
+        <span>Add Product</span>
+      </button> -->
+    </div>
+  </div>
+  
+<div class="sss"  >
+  <form class="d-flex" >
+      <input class="form-control w-25 " style="display: flex; margin-left: auto;" 
+      type="text" placeholder="Search" #ten>
+
+      <button class="btn btn-primary " style="margin-right: 10px; margin-left:10px ;" 
+      type="button" (click)="getProductByName()" >Search</button>
+      <button class="btn btn-success " style="margin-right: auto; margin-left:0px ;" 
+      type="button" (click)="openDialogAdd()" >+ Add Product</button>
+
+      
+  </form>
+</div>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="productName">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef> Type </th>
+      <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="manufacturerName">
+      <th mat-header-cell *matHeaderCellDef> Manufacturer </th>
+      <td mat-cell *matCellDef="let element"> {{element.manufacturerName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="year">
+      <th mat-header-cell *matHeaderCellDef> Year </th>
+      <td mat-cell *matCellDef="let element"> {{element.year}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef> Price </th>
+      <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <!-- <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
+    <tr
+        mat-row
+        (click)="clickedRows.add(row)"
+        [class.demo-row-is-clicked]="clickedRows.has(row)"
+        *matRowDef="let row; columns: displayedColumns;" 
+        (click)="openDialogEdit(row)"
+    >  </tr>
+
+  </table>
+  <mat-paginator [pageSizeOptions]="pageSize"
+                showFirstLastButtons
+                aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>
+<button class="btn btn-primary " style=" display:flex;margin-right: auto; margin-left:auto ;" 
+      type="button" (click)="exportReport()" >Export Report</button>
+    <!-- <input class="form-control " style="height: 80%; width:3.5%;display: flex; margin-left: 83%;" 
+          type="text" placeholder="" 
+          name="pageSizeEdit"
+          [(ngModel)] = "pageSize"
+          (change)="getAllProduct()"
+          >
+     -->
+
+
+</body>
+</html>

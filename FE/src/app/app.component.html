@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="/src/assets/themify-icons/themify-icons.css">
+<div class="toolbar" role="banner">
+  <div class="space1"></div>
+  <h2>Web quản lý sản phẩm</h2>
+  <div class="space2"></div>
+  <ul>
+    <li (click)="logOut()" >Sign Out</li>
+  </ul>
+</div>
+<!-- <div class="content">
+  <h3 class="h3User">Hello: {{nameUser}}</h3>
+  <div class="button-container">
+    <button class="button card-small"  routerLink="/list" routerLinkActive="active"  tabindex="0">
+      <span>List Products</span>
+    </button>
+    <button class="button button-small" (click)="openDialogAdd()" routerLink="/add" routerLinkActive="active" tabindex="0">
+      <span>Add Product</span>
+    </button>
+  </div>
+</div>
+<app-product-list></app-product-list> -->
+
+<!-- được sử dụng để điều hướng (route) cho các path url trong ứng dụng  -->
+<!-- Thực hiện nhiệm vụ chính là chuyển trang, thay đổi một số thành phần mà không cần phải tải lại trang. -->
+<router-outlet></router-outlet>
+
+
+
+<!-- <app-login></app-login> -->
+<!-- <app-header-footer></app-header-footer> -->
